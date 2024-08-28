@@ -12,5 +12,5 @@ Student Info
 
 * Name: Ha Tan Minh
 * ID: BA12-126
-* Group ID: *Your Group ID here*
+* Group ID: 21
 * Project Name: *Your Project Name here*
