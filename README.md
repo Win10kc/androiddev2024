@@ -12,5 +12,10 @@ Student Info
 
 * Name: Ha Tan Minh
 * ID: BA12-126
-* Group ID: 21
-* Project Name: *Your Project Name here*
+* Group ID: 20
+* Project Name: Flick Image Browser
+
+
+
+
+

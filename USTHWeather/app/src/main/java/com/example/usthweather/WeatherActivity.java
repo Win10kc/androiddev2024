@@ -1,61 +1,32 @@
 package com.example.usthweather;
 
 import android.os.Bundle;
-//import android.util.Log;
-//import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class WeatherActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        // Check if the fragment container is available
-        if (findViewById(R.id.fragment_container) != null) {
-            // Avoid overlapping fragments when activity is recreated
-            if (savedInstanceState != null) {
-                return;
-            }
+        // Check if we are recreating a previously destroyed instance
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            // Create a new instance of ForecastFragment
+            // Add the WeatherFragment (Green Area)
+            WeatherFragment weatherFragment = new WeatherFragment();
+            fragmentTransaction.add(R.id.weather_fragment_container, weatherFragment);
+
+            // Add the ForecastFragment (List of Forecasts)
             ForecastFragment forecastFragment = new ForecastFragment();
+            fragmentTransaction.add(R.id.forecast_fragment_container, forecastFragment);
 
-            // Add the fragment to the 'fragment_container' FrameLayout
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, forecastFragment).commit();
+            // Commit the transaction
+            fragmentTransaction.commit();
         }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        Log.i(TAG, "onStart called");
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Log.i(TAG, "onResume called");
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        Log.i(TAG, "onPause called");
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        Log.i(TAG, "onStop called");
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        Log.i(TAG, "onDestroy called");
     }
 }

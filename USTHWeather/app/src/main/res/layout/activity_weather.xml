@@ -7,9 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".WeatherActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <!-- Use ScrollView to make both fragments scrollable -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Weather Fragment (Green Area at the top) -->
+            <FrameLayout
+                android:id="@+id/weather_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Forecast Fragment (List of Forecasts) -->
+            <FrameLayout
+                android:id="@+id/forecast_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
