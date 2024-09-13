@@ -2,8 +2,7 @@ package com.example.usthweather;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 public class WeatherActivity extends AppCompatActivity {
 
@@ -12,21 +11,15 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        // Check if we are recreating a previously destroyed instance
-        if (savedInstanceState == null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        // ViewPager setup
+        ViewPager viewPager = findViewById(R.id.viewpager);
+        WeatherPagerAdapter adapter = new WeatherPagerAdapter(getSupportFragmentManager());
 
-            // Add the WeatherFragment (Green Area)
-            WeatherFragment weatherFragment = new WeatherFragment();
-            fragmentTransaction.add(R.id.weather_fragment_container, weatherFragment);
+        // Adding instances of WeatherAndForecastFragment for different cities
+        adapter.addFragment(WeatherAndForecastFragment.newInstance("Hanoi, Vietnam"));
+        adapter.addFragment(WeatherAndForecastFragment.newInstance("Paris, France"));
+        adapter.addFragment(WeatherAndForecastFragment.newInstance("Toulouse, France"));
 
-            // Add the ForecastFragment (List of Forecasts)
-            ForecastFragment forecastFragment = new ForecastFragment();
-            fragmentTransaction.add(R.id.forecast_fragment_container, forecastFragment);
-
-            // Commit the transaction
-            fragmentTransaction.commit();
-        }
+        viewPager.setAdapter(adapter);
     }
 }
