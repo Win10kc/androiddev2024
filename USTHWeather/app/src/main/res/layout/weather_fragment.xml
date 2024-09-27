@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    android:background="#DFFFD8"> <!-- Light green background -->
+    android:background="@drawable/mad_background">
 
     <!-- Temperature Text -->
     <TextView
