@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">USTH Weather</string>
     <string name="hanoi_vietnam">Hà Nội, Việt Nam</string>
+    <string name="paris_france">Paris, Pháp</string>
+    <string name="toulouse_france">Toulouse, Pháp</string>
     <color name="primary_color">#FF5722</color>
 </resources>
